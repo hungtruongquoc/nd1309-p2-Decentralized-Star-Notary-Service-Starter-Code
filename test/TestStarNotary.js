@@ -109,7 +109,7 @@ it('lets a user transfer a star', async() => {
     // 1. create a Star with different tokenId
     await instance.createStar('Alpha Centauri', 13, {from: user1});
     // 2. use the transferStar function implemented in the Smart Contract
-    await instance.transferStar(user2, 13);
+    await instance.transferStar(user2, 13, {from: user1});
     // 3. Verify the star owner changed.
     assert.equal(await instance.ownerOf(13), user2, "User2 should now own the star after transfer");
 });
